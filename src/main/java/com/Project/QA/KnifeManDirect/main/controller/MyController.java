@@ -45,9 +45,9 @@ public class MyController {
 
     }
 
-    @PutMapping("/amend")
-    public String amendApp(@RequestBody Appointments app){
-        appServ.amendApp(app);
+    @PutMapping("/amend/{id}")
+    public String amendApp(@RequestBody Appointments app, @PathVariable int id){
+        appServ.amendApp(app,id);
         return "Appointment amended!";
     }
 
