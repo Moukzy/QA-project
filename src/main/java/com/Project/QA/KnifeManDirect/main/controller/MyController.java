@@ -45,6 +45,12 @@ public class MyController {
 
     }
 
+    @PutMapping("/amend")
+    public String amendApp(@RequestBody Appointments app){
+        appServ.amendApp(app);
+        return "Appointment amended!";
+    }
+
     @DeleteMapping("/delete/{id}")
     public String deleteApp(@PathVariable int id) {
         return appServ.delete(id);
