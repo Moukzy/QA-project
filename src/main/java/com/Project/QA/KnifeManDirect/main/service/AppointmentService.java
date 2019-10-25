@@ -44,6 +44,9 @@ public class AppointmentService {
     public void save(Appointments app) {
         repo.save(app);
     }
+    public void amendApp(Appointments app){
+        repo.save(app);
+    }
 
 
     public String delete(int id) {
