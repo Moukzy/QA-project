@@ -44,8 +44,12 @@ public class AppointmentService {
     public void save(Appointments app) {
         repo.save(app);
     }
-    public void amendApp(Appointments app){
-        repo.save(app);
+    public void amendApp(Appointments app, int id){
+        Appointments amending = findById(id);
+        amending.setName(app.getName());
+        amending.setAppDate((app.getAppDate()));
+        amending.setTimeSlot(app.getTimeSlot());
+        repo.save(amending);
     }
 
 
