@@ -12,9 +12,9 @@ public interface AppointmentsRepo extends JpaRepository<Appointments,Integer> {
 
     Appointments findById(int id);
 
-    ArrayList<Appointments> findByAppDate(Date appDate);
+    ArrayList<Appointments> findByAppDate(String appDate);
 
-    Appointments findByAppDateAndTimeSlot(Date appDate, int time_slot);
+    Appointments findByAppDateAndTimeSlot(String appDate, int time_slot);
 
 
 

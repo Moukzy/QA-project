@@ -10,52 +10,40 @@ import java.util.ArrayList;
 import java.util.Date;
 
 @RestController
+@CrossOrigin("*")
+@RequestMapping("/appointment")
 public class MyController {
 
 
     @Autowired
     private AppointmentService appServ;
 
-    @GetMapping("/findById/{id}")
+    @GetMapping("/{id}")
     public Appointments findById(@PathVariable int id) {
         return appServ.findById(id);
     }
 
 
-    @GetMapping("/showAllAppointment")
+    @GetMapping
     public ArrayList<Appointments> showAllAppointments() {
         return appServ.findAll();
     }
 
-    @GetMapping("/findByDate/{date}")
-    public ArrayList<Appointments> findByDate(@PathVariable Date date) {
-
-        return appServ.findByAppDate(date);
-    }
-
-    @GetMapping("/findByDateAndTimeSlot/{date}/{time_slot}")
-    public Appointments findByDateAndTimeSlot(@PathVariable Date date, @PathVariable int time_slot) {
-        return appServ.findByAppDateAndTimeSlot(date, time_slot);
-    }
-
-    @PostMapping("/book")
+    @PostMapping
     public String bookApp(@RequestBody Appointments app) {
         appServ.save(app);
         return "Appointment Booked!";
-
     }
 
-    @PutMapping("/amend/{id}")
-    public String amendApp(@RequestBody Appointments app, @PathVariable int id){
-        appServ.amendApp(app,id);
+    @PutMapping
+    public String amendApp(@RequestBody Appointments app){
+        appServ.amendApp(app);
         return "Appointment amended!";
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public String deleteApp(@PathVariable int id) {
         return appServ.delete(id);
-
-
     }
 }
 
