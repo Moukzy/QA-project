@@ -4,13 +4,12 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-
 public class Appointments {
     @Id
     @GeneratedValue
     private Integer id;
     private String name;
-    private Date appDate;
+    private String appDate;
     private int timeSlot;
 
     public Integer getId() {
@@ -29,11 +28,11 @@ public class Appointments {
         this.name = name;
     }
 
-    public Date getAppDate() {
+    public String getAppDate() {
         return appDate;
     }
 
-    public void setAppDate(Date appDate) {
+    public void setAppDate(String appDate) {
         this.appDate = appDate;
     }
 

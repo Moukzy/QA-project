@@ -31,12 +31,12 @@ public class AppointmentService {
         return repo.findById(id);
     }
 
-    public ArrayList<Appointments> findByAppDate(Date appDate) {
+    public ArrayList<Appointments> findByAppDate(String appDate) {
 
         return repo.findByAppDate(appDate);
     }
 
-    public Appointments findByAppDateAndTimeSlot(Date appDate, int slot) {
+    public Appointments findByAppDateAndTimeSlot(String appDate, int slot) {
 
         return repo.findByAppDateAndTimeSlot(appDate, slot);
     }
@@ -44,8 +44,8 @@ public class AppointmentService {
     public void save(Appointments app) {
         repo.save(app);
     }
-    public void amendApp(Appointments app, int id){
-        Appointments amending = findById(id);
+    public void amendApp(Appointments app){
+        Appointments amending = findById(app.getId());
         amending.setName(app.getName());
         amending.setAppDate((app.getAppDate()));
         amending.setTimeSlot(app.getTimeSlot());
