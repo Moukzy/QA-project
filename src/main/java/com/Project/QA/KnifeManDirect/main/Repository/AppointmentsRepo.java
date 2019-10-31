@@ -9,12 +9,10 @@ import java.util.Date;
 public interface AppointmentsRepo extends JpaRepository<Appointments,Integer> {
 
     ArrayList<Appointments> findAll();
-
-    Appointments findById(int id);
-
+    ArrayList<Appointments> findByOrderByIdAsc();
     ArrayList<Appointments> findByAppDate(String appDate);
 
-    Appointments findByAppDateAndTimeSlot(String appDate, int time_slot);
+    Appointments findByAppDateAndTimeSlot(String appDate, String time_slot);
 
 
 

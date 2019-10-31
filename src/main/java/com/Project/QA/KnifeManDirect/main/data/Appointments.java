@@ -10,7 +10,7 @@ public class Appointments {
     private Integer id;
     private String name;
     private String appDate;
-    private int timeSlot;
+    private String timeSlot;
 
     public Integer getId() {
         return id;
@@ -36,11 +36,11 @@ public class Appointments {
         this.appDate = appDate;
     }
 
-    public int getTimeSlot() {
+    public String getTimeSlot() {
         return timeSlot;
     }
 
-    public void setTimeSlot(int timeSlot) {
+    public void setTimeSlot(String timeSlot) {
         this.timeSlot = timeSlot;
     }
 }

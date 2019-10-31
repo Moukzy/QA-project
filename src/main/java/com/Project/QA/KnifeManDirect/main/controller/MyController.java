@@ -19,13 +19,14 @@ public class MyController {
     private AppointmentService appServ;
 
     @GetMapping("/{id}")
-    public Appointments findById(@PathVariable int id) {
+    public Appointments findById(@PathVariable Integer id) {
         return appServ.findById(id);
     }
 
 
     @GetMapping
     public ArrayList<Appointments> showAllAppointments() {
+
         return appServ.findAll();
     }
 
@@ -36,13 +37,13 @@ public class MyController {
     }
 
     @PutMapping
-    public String amendApp(@RequestBody Appointments app){
+    public String amendApp(@RequestBody Appointments app) {
         appServ.amendApp(app);
         return "Appointment amended!";
     }
 
     @DeleteMapping("/{id}")
-    public String deleteApp(@PathVariable int id) {
+    public String deleteApp(@PathVariable Integer id) {
         return appServ.delete(id);
     }
 }
