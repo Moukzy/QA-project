@@ -24,11 +24,12 @@ public class AppointmentService {
     }
 
     public ArrayList<Appointments> findAll() {
-        return repo.findAll();
+      //  return repo.findAll();
+        return repo.findByOrderByIdAsc();
     }
 
-    public Appointments findById(int id) {
-        return repo.findById(id);
+    public Appointments findById(Integer id) {
+        return repo.getOne(id);
     }
 
     public ArrayList<Appointments> findByAppDate(String appDate) {
@@ -36,7 +37,7 @@ public class AppointmentService {
         return repo.findByAppDate(appDate);
     }
 
-    public Appointments findByAppDateAndTimeSlot(String appDate, int slot) {
+    public Appointments findByAppDateAndTimeSlot(String appDate, String slot) {
 
         return repo.findByAppDateAndTimeSlot(appDate, slot);
     }
